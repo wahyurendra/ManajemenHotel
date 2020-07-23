@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2020 at 01:29 PM
+-- Generation Time: Jul 23, 2020 at 01:52 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -34,7 +34,7 @@ CREATE TABLE `customer` (
   `no_identitas` varchar(20) NOT NULL COMMENT 'Nomor Identitas',
   `nama_customer` varchar(255) NOT NULL COMMENT 'Nama Pengunjung',
   `alamat` varchar(255) NOT NULL COMMENT 'Alamat',
-  `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL COMMENT 'Jenis Kelamin',
+  `jenis_kelamin` varchar(50) NOT NULL COMMENT 'Jenis Kelamin',
   `no_telp` varchar(20) NOT NULL COMMENT 'Nomor Telepon',
   `email` varchar(50) NOT NULL COMMENT 'E-Mail'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -63,8 +63,8 @@ DELIMITER ;
 CREATE TABLE `kamar` (
   `id_kamar` int(11) NOT NULL,
   `no_kamar` varchar(10) NOT NULL COMMENT 'Nomor Kamar',
-  `tipe_bed` enum('Single Bed','Double Bed','Twin Bed','Family Bed') NOT NULL COMMENT 'Tipe Tempat Tidur',
-  `tipe_kamar` enum('Standard Room','Superior Room','Deluxe Room','Junior Suite Room','Suite Room','Presidential Suite') NOT NULL COMMENT 'Tipe Kamar',
+  `tipe_bed` varchar(50) NOT NULL COMMENT 'Tipe Tempat Tidur',
+  `tipe_kamar` varchar(50) NOT NULL COMMENT 'Tipe Kamar',
   `occupied` int(11) NOT NULL COMMENT 'Status Kamar',
   `harga` int(11) NOT NULL COMMENT 'Harga'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -162,7 +162,7 @@ CREATE TABLE `receptionist` (
   `nama_recept` varchar(255) NOT NULL COMMENT 'Nama Resepsionis',
   `tmp_lahir` varchar(255) NOT NULL,
   `tgl_lahir` date NOT NULL,
-  `jenis_kelamin` enum('Laki-laki','Perempuan','','') NOT NULL,
+  `jenis_kelamin` varchar(50) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `no_telp` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -251,12 +251,12 @@ CREATE TABLE `view_reservasi_full` (
 ,`no_identitas` varchar(20)
 ,`nama_customer` varchar(255)
 ,`alamat` varchar(255)
-,`jenis_kelamin` enum('Laki-laki','Perempuan')
+,`jenis_kelamin` varchar(50)
 ,`no_telp` varchar(20)
 ,`email` varchar(50)
 ,`no_kamar` varchar(10)
-,`tipe_bed` enum('Single Bed','Double Bed','Twin Bed','Family Bed')
-,`tipe_kamar` enum('Standard Room','Superior Room','Deluxe Room','Junior Suite Room','Suite Room','Presidential Suite')
+,`tipe_bed` varchar(50)
+,`tipe_kamar` varchar(50)
 ,`harga` int(11)
 ,`tgl_checkin` date
 ,`tgl_checkout` date
