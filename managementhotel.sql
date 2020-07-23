@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 21, 2020 at 02:48 PM
+-- Generation Time: Jul 23, 2020 at 01:29 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -65,7 +65,7 @@ CREATE TABLE `kamar` (
   `no_kamar` varchar(10) NOT NULL COMMENT 'Nomor Kamar',
   `tipe_bed` enum('Single Bed','Double Bed','Twin Bed','Family Bed') NOT NULL COMMENT 'Tipe Tempat Tidur',
   `tipe_kamar` enum('Standard Room','Superior Room','Deluxe Room','Junior Suite Room','Suite Room','Presidential Suite') NOT NULL COMMENT 'Tipe Kamar',
-  `occupied` enum('False','True') NOT NULL COMMENT 'Status Kamar',
+  `occupied` int(11) NOT NULL COMMENT 'Status Kamar',
   `harga` int(11) NOT NULL COMMENT 'Harga'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -74,79 +74,79 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe_bed`, `tipe_kamar`, `occupied`, `harga`) VALUES
-(7, '101', 'Single Bed', 'Standard Room', 'False', 565000),
-(8, '102', 'Single Bed', 'Standard Room', 'False', 565000),
-(9, '103', 'Single Bed', 'Standard Room', 'False', 565000),
-(10, '104', 'Double Bed', 'Standard Room', 'False', 724000),
-(11, '105', 'Double Bed', 'Standard Room', 'False', 724000),
-(12, '106', 'Double Bed', 'Standard Room', 'False', 724000),
-(13, '107', 'Twin Bed', 'Standard Room', 'True', 618000),
-(14, '108', 'Twin Bed', 'Standard Room', 'False', 618000),
-(15, '109', 'Twin Bed', 'Standard Room', 'False', 618000),
-(16, '110', 'Family Bed', 'Standard Room', 'True', 883000),
-(17, '111', 'Family Bed', 'Standard Room', 'False', 883000),
-(18, '112', 'Family Bed', 'Standard Room', 'True', 883000),
-(19, '201', 'Single Bed', 'Superior Room', 'False', 828000),
-(20, '202', 'Single Bed', 'Superior Room', 'False', 828000),
-(21, '203', 'Single Bed', 'Superior Room', 'False', 828000),
-(22, '204', 'Double Bed', 'Superior Room', 'False', 987000),
-(23, '205', 'Double Bed', 'Superior Room', 'False', 987000),
-(24, '206', 'Double Bed', 'Superior Room', 'False', 987000),
-(25, '207', 'Twin Bed', 'Superior Room', 'True', 881000),
-(26, '208', 'Twin Bed', 'Superior Room', 'False', 881000),
-(27, '209', 'Twin Bed', 'Superior Room', 'False', 881000),
-(28, '210', 'Family Bed', 'Superior Room', 'False', 1146000),
-(29, '211', 'Family Bed', 'Superior Room', 'False', 1146000),
-(30, '212', 'Family Bed', 'Superior Room', 'False', 1146000),
-(31, '301', 'Single Bed', 'Deluxe Room', 'False', 1091000),
-(32, '302', 'Single Bed', 'Deluxe Room', 'False', 1091000),
-(33, '303', 'Single Bed', 'Deluxe Room', 'False', 1091000),
-(34, '304', 'Double Bed', 'Deluxe Room', 'False', 1250000),
-(35, '305', 'Double Bed', 'Deluxe Room', 'False', 1250000),
-(36, '306', 'Double Bed', 'Deluxe Room', 'True', 1250000),
-(37, '307', 'Twin Bed', 'Deluxe Room', 'False', 1144000),
-(38, '308', 'Twin Bed', 'Deluxe Room', 'False', 1144000),
-(39, '309', 'Twin Bed', 'Deluxe Room', 'False', 1144000),
-(40, '310', 'Family Bed', 'Deluxe Room', 'False', 1409000),
-(41, '311', 'Family Bed', 'Deluxe Room', 'False', 1409000),
-(42, '312', 'Family Bed', 'Deluxe Room', 'False', 1409000),
-(43, '401', 'Single Bed', 'Junior Suite Room', 'False', 1453000),
-(44, '402', 'Single Bed', 'Junior Suite Room', 'False', 1453000),
-(45, '403', 'Single Bed', 'Junior Suite Room', 'False', 1453000),
-(46, '404', 'Double Bed', 'Junior Suite Room', 'True', 1612000),
-(47, '405', 'Double Bed', 'Junior Suite Room', 'False', 1612000),
-(48, '406', 'Double Bed', 'Junior Suite Room', 'False', 1612000),
-(49, '407', 'Twin Bed', 'Junior Suite Room', 'False', 1506000),
-(50, '408', 'Twin Bed', 'Junior Suite Room', 'False', 1506000),
-(51, '409', 'Twin Bed', 'Junior Suite Room', 'False', 1506000),
-(52, '410', 'Family Bed', 'Junior Suite Room', 'False', 1771000),
-(53, '411', 'Family Bed', 'Junior Suite Room', 'False', 1771000),
-(54, '412', 'Family Bed', 'Junior Suite Room', 'False', 1771000),
-(55, '501', 'Single Bed', 'Suite Room', 'False', 1815000),
-(56, '502', 'Single Bed', 'Suite Room', 'True', 1815000),
-(57, '503', 'Single Bed', 'Suite Room', 'False', 1815000),
-(58, '504', 'Double Bed', 'Suite Room', 'False', 1974000),
-(59, '505', 'Double Bed', 'Suite Room', 'True', 1974000),
-(60, '506', 'Double Bed', 'Suite Room', 'False', 1974000),
-(61, '507', 'Twin Bed', 'Suite Room', 'False', 1868000),
-(62, '508', 'Twin Bed', 'Suite Room', 'False', 1868000),
-(63, '509', 'Twin Bed', 'Suite Room', 'False', 1868000),
-(64, '510', 'Family Bed', 'Suite Room', 'False', 2133000),
-(65, '511', 'Family Bed', 'Suite Room', 'False', 2133000),
-(66, '512', 'Family Bed', 'Suite Room', 'False', 2133000),
-(67, '601', 'Single Bed', 'Presidential Suite', 'False', 2177000),
-(68, '602', 'Single Bed', 'Presidential Suite', 'False', 2177000),
-(69, '603', 'Single Bed', 'Presidential Suite', 'False', 2177000),
-(70, '604', 'Double Bed', 'Presidential Suite', 'False', 2336000),
-(71, '605', 'Double Bed', 'Presidential Suite', 'True', 2336000),
-(72, '606', 'Double Bed', 'Presidential Suite', 'False', 2336000),
-(73, '607', 'Twin Bed', 'Presidential Suite', 'False', 2230000),
-(74, '608', 'Twin Bed', 'Presidential Suite', 'False', 2230000),
-(75, '609', 'Twin Bed', 'Presidential Suite', 'False', 2230000),
-(76, '610', 'Family Bed', 'Presidential Suite', 'True', 2495000),
-(77, '611', 'Family Bed', 'Presidential Suite', 'False', 2495000),
-(78, '612', 'Family Bed', 'Presidential Suite', 'False', 2495000),
-(79, '113', 'Single Bed', 'Standard Room', '', 1231132);
+(7, '101', 'Single Bed', 'Standard Room', 1, 565000),
+(8, '102', 'Single Bed', 'Standard Room', 1, 565000),
+(9, '103', 'Single Bed', 'Standard Room', 1, 565000),
+(10, '104', 'Double Bed', 'Standard Room', 1, 724000),
+(11, '105', 'Double Bed', 'Standard Room', 1, 724000),
+(12, '106', 'Double Bed', 'Standard Room', 1, 724000),
+(13, '107', 'Twin Bed', 'Standard Room', 0, 618000),
+(14, '108', 'Twin Bed', 'Standard Room', 1, 618000),
+(15, '109', 'Twin Bed', 'Standard Room', 1, 618000),
+(16, '110', 'Family Bed', 'Standard Room', 0, 883000),
+(17, '111', 'Family Bed', 'Standard Room', 1, 883000),
+(18, '112', 'Family Bed', 'Standard Room', 0, 883000),
+(19, '201', 'Single Bed', 'Superior Room', 1, 828000),
+(20, '202', 'Single Bed', 'Superior Room', 1, 828000),
+(21, '203', 'Single Bed', 'Superior Room', 1, 828000),
+(22, '204', 'Double Bed', 'Superior Room', 1, 987000),
+(23, '205', 'Double Bed', 'Superior Room', 1, 987000),
+(24, '206', 'Double Bed', 'Superior Room', 1, 987000),
+(25, '207', 'Twin Bed', 'Superior Room', 0, 881000),
+(26, '208', 'Twin Bed', 'Superior Room', 1, 881000),
+(27, '209', 'Twin Bed', 'Superior Room', 1, 881000),
+(28, '210', 'Family Bed', 'Superior Room', 1, 1146000),
+(29, '211', 'Family Bed', 'Superior Room', 1, 1146000),
+(30, '212', 'Family Bed', 'Superior Room', 1, 1146000),
+(31, '301', 'Single Bed', 'Deluxe Room', 1, 1091000),
+(32, '302', 'Single Bed', 'Deluxe Room', 1, 1091000),
+(33, '303', 'Single Bed', 'Deluxe Room', 1, 1091000),
+(34, '304', 'Double Bed', 'Deluxe Room', 1, 1250000),
+(35, '305', 'Double Bed', 'Deluxe Room', 1, 1250000),
+(36, '306', 'Double Bed', 'Deluxe Room', 0, 1250000),
+(37, '307', 'Twin Bed', 'Deluxe Room', 1, 1144000),
+(38, '308', 'Twin Bed', 'Deluxe Room', 1, 1144000),
+(39, '309', 'Twin Bed', 'Deluxe Room', 1, 1144000),
+(40, '310', 'Family Bed', 'Deluxe Room', 1, 1409000),
+(41, '311', 'Family Bed', 'Deluxe Room', 1, 1409000),
+(42, '312', 'Family Bed', 'Deluxe Room', 1, 1409000),
+(43, '401', 'Single Bed', 'Junior Suite Room', 1, 1453000),
+(44, '402', 'Single Bed', 'Junior Suite Room', 1, 1453000),
+(45, '403', 'Single Bed', 'Junior Suite Room', 1, 1453000),
+(46, '404', 'Double Bed', 'Junior Suite Room', 0, 1612000),
+(47, '405', 'Double Bed', 'Junior Suite Room', 1, 1612000),
+(48, '406', 'Double Bed', 'Junior Suite Room', 1, 1612000),
+(49, '407', 'Twin Bed', 'Junior Suite Room', 1, 1506000),
+(50, '408', 'Twin Bed', 'Junior Suite Room', 1, 1506000),
+(51, '409', 'Twin Bed', 'Junior Suite Room', 1, 1506000),
+(52, '410', 'Family Bed', 'Junior Suite Room', 1, 1771000),
+(53, '411', 'Family Bed', 'Junior Suite Room', 1, 1771000),
+(54, '412', 'Family Bed', 'Junior Suite Room', 1, 1771000),
+(55, '501', 'Single Bed', 'Suite Room', 1, 1815000),
+(56, '502', 'Single Bed', 'Suite Room', 0, 1815000),
+(57, '503', 'Single Bed', 'Suite Room', 1, 1815000),
+(58, '504', 'Double Bed', 'Suite Room', 1, 1974000),
+(59, '505', 'Double Bed', 'Suite Room', 0, 1974000),
+(60, '506', 'Double Bed', 'Suite Room', 1, 1974000),
+(61, '507', 'Twin Bed', 'Suite Room', 1, 1868000),
+(62, '508', 'Twin Bed', 'Suite Room', 1, 1868000),
+(63, '509', 'Twin Bed', 'Suite Room', 1, 1868000),
+(64, '510', 'Family Bed', 'Suite Room', 1, 2133000),
+(65, '511', 'Family Bed', 'Suite Room', 1, 2133000),
+(66, '512', 'Family Bed', 'Suite Room', 1, 2133000),
+(67, '601', 'Single Bed', 'Presidential Suite', 1, 2177000),
+(68, '602', 'Single Bed', 'Presidential Suite', 1, 2177000),
+(69, '603', 'Single Bed', 'Presidential Suite', 1, 2177000),
+(70, '604', 'Double Bed', 'Presidential Suite', 1, 2336000),
+(71, '605', 'Double Bed', 'Presidential Suite', 0, 2336000),
+(72, '606', 'Double Bed', 'Presidential Suite', 1, 2336000),
+(73, '607', 'Twin Bed', 'Presidential Suite', 1, 2230000),
+(74, '608', 'Twin Bed', 'Presidential Suite', 1, 2230000),
+(75, '609', 'Twin Bed', 'Presidential Suite', 1, 2230000),
+(76, '610', 'Family Bed', 'Presidential Suite', 0, 2495000),
+(77, '611', 'Family Bed', 'Presidential Suite', 1, 2495000),
+(78, '612', 'Family Bed', 'Presidential Suite', 1, 2495000),
+(79, '113', 'Single Bed', 'Standard Room', 1, 1231132);
 
 -- --------------------------------------------------------
 
@@ -188,7 +188,7 @@ CREATE TABLE `reservasi` (
   `tgl_checkin` date NOT NULL COMMENT 'Tanggal Check-in',
   `tgl_checkout` date NOT NULL COMMENT 'Tanggal Check-out',
   `kode_recept` varchar(10) NOT NULL,
-  `status_reservasi` enum('Aktif','Tidak Aktif') NOT NULL COMMENT 'Status'
+  `status_reservasi` int(11) NOT NULL COMMENT 'Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -196,8 +196,8 @@ CREATE TABLE `reservasi` (
 --
 
 INSERT INTO `reservasi` (`id_reservasi`, `kode_customer`, `no_kamar`, `tgl_checkin`, `tgl_checkout`, `kode_recept`, `status_reservasi`) VALUES
-(1, 'AH-Cust-1', '605', '2020-04-14', '2020-04-16', 'L001', 'Aktif'),
-(2, 'AH-Cust-1', '610', '2020-04-14', '2020-04-16', 'L001', 'Aktif');
+(1, 'AH-Cust-1', '605', '2020-04-14', '2020-04-16', 'L001', 1),
+(2, 'AH-Cust-1', '610', '2020-04-14', '2020-04-16', 'L001', 1);
 
 -- --------------------------------------------------------
 
@@ -236,7 +236,7 @@ CREATE TABLE `view_reservasi` (
 ,`tgl_checkin` date
 ,`tgl_checkout` date
 ,`nama_recept` varchar(255)
-,`status_reservasi` enum('Aktif','Tidak Aktif')
+,`status_reservasi` int(11)
 );
 
 -- --------------------------------------------------------
@@ -260,7 +260,7 @@ CREATE TABLE `view_reservasi_full` (
 ,`harga` int(11)
 ,`tgl_checkin` date
 ,`tgl_checkout` date
-,`status_reservasi` enum('Aktif','Tidak Aktif')
+,`status_reservasi` int(11)
 ,`kode_recept` varchar(10)
 ,`nama_recept` varchar(255)
 );
