@@ -6,26 +6,99 @@
 package com.restclient.managementhotel;
 
 
+import static com.restclient.managementhotel.Koneksi.conn;
+import com.toedter.calendar.JDateChooser;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author r.kumbara
  */
-public class MainMenu extends javax.swing.JFrame {
-
+public class Reservasi1 extends javax.swing.JFrame {
+Connection conn = Koneksi.connectDB();
     /**
      * Creates new form MainMenu
      */
-    public MainMenu() {
+    public Reservasi1() throws SQLException {
         initComponents();
+        loadTabelReservasi();
     }
+        public void loadTabelReservasi() throws java.sql.SQLException{
 
+        String sql = "SELECT * FROM view_reservasi_full";
+        Object[] kolom = {"No", "Kode Pengunjung", "Nama Pengunjung",
+            "Nomor Kamar", "Tanggal Check-In","Tanggal Check-Out", "Nama Resepsionis", "Status Reservasi"};
+        DefaultTableModel dataModel = new DefaultTableModel(null, kolom);
+        tblReservasi.setModel(dataModel);
+        tblReservasi.getColumnModel().getColumn(0).setMaxWidth(30);
+        
+        try{
+            Statement stmt = conn.createStatement();
+            ResultSet rs   = stmt.executeQuery(sql);
+            
+            while(rs.next()){    
+                int id = rs.getInt("id_reservasi");
+                String kodecs = rs.getString("kode_customer");
+                String nm = rs.getString("nama_customer");
+                String nokamar = rs.getString("no_kamar");
+                Date tcin = rs.getDate("tgl_checkin");
+                Date tcout = rs.getDate("tgl_checkout");
+                String kode = rs.getString("kode_recept");
+                int status = rs.getInt("status_reservasi");
+                
+                Object[] data={id, kodecs, nm, nokamar, tcin, tcout, kode, status};
+                dataModel.addRow(data);
+            }
+        } catch (java.sql.SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+        public void loadTabelReservasi(String teks) throws java.sql.SQLException{
+      Connection conn = Koneksi.connectDB();
+
+       String sql = "SELECT * FROM view_reservasi_full WHERE id_reservasi like '%"+ teks +"%'";
+        Object[] kolom = {"No", "Kode Pengunjung", "Nama Pengunjung",
+            "Nomor Kamar", "Tanggal Check-In","Tanggal Check-Out", "Nama Resepsionis", "Status Reservasi"};
+        DefaultTableModel dataModel = new DefaultTableModel(null, kolom);
+        tblReservasi.setModel(dataModel);
+        tblReservasi.getColumnModel().getColumn(0).setMaxWidth(30);
+        
+        try{
+            Statement stmt = conn.createStatement();
+            ResultSet rs   = stmt.executeQuery(sql);
+            
+            while(rs.next()){    
+                int id = rs.getInt("id_reservasi");
+                String kodecs = rs.getString("kode_customer");
+                String nm = rs.getString("nama_customer");
+                String nokamar = rs.getString("no_kamar");
+                Date tcin = rs.getDate("tgl_checkin");
+                Date tcout = rs.getDate("tgl_checkout");
+                String kode = rs.getString("kode_recept");
+                int status = rs.getInt("status_reservasi");
+                
+                Object[] data={id, kodecs, nm, nokamar, tcin, tcout, kode, status};
+                dataModel.addRow(data);
+            }
+        } catch (java.sql.SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,6 +127,12 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtCari = new javax.swing.JTextField();
+        btnTambah = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblReservasi = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -187,6 +266,52 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel2.setText("Management Hotel");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
+        txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCariKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txtCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 200, 40));
+
+        btnTambah.setText("Tambah Data");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, -1, -1));
+
+        btnHapus.setText("Hapus Data");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 570, -1, -1));
+
+        btnEdit.setText("Edit Data");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 570, 110, -1));
+
+        tblReservasi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblReservasi);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 960, 410));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FMainMenu.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 625));
 
@@ -263,17 +388,18 @@ public class MainMenu extends javax.swing.JFrame {
     
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
-       
+        formKamar.setVisible(true);
+        formKamar.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
     }//GEN-LAST:event_jLabel13MouseClicked
     
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
         Reservasi1 formReservasi = null;
-        try {
-            formReservasi = new Reservasi1();
-        } catch (SQLException ex) {
-            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    try {
+        formReservasi = new Reservasi1();
+    } catch (SQLException ex) {
+        Logger.getLogger(Reservasi1.class.getName()).log(Level.SEVERE, null, ex);
+    }
         formReservasi.setVisible(true);
         formReservasi.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jLabel5MouseClicked
@@ -283,6 +409,128 @@ Kamar1 formKamar = new Kamar1();
          formKamar.setVisible(true);
         formKamar.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
     }//GEN-LAST:event_jPanel8MouseClicked
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        // TODO add your handling code here:
+        TambahReservasi fTR = new TambahReservasi();
+        fTR.show();
+        this.hide();
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+         if(tblReservasi.isRowSelected(tblReservasi.getSelectedRow())==true){
+            int selectedID = (int)tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 0);
+            
+            int result = JOptionPane.showConfirmDialog(
+                this,
+                "Kamu akan menghapus data Reservasi "
+                        + tblReservasi.getValueAt(tblReservasi.getSelectedRow(),1).toString(),
+                "Peringatan!",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE
+            );
+            
+            if (result == JOptionPane.YES_OPTION){
+                try{
+                    Statement stmt = conn.createStatement();
+                    stmt.executeUpdate("DELETE FROM reservasi WHERE id_reservasi='"
+                            + selectedID + "'");
+                    loadTabelReservasi();
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+            }
+         } else {
+             JOptionPane.showMessageDialog(this, "Tidak ada yang dipilih");
+         }
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+                  // TODO add your handling code here:
+        if(tblReservasi.isRowSelected(tblReservasi.getSelectedRow())==true){
+            int selectedID = (int)tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 0);
+            JTextField txtNo = new JTextField(15);
+            JTextField txtKp = new JTextField(15);
+            JTextField txtNp = new JTextField(15);
+            JTextField txtNk = new JTextField(15);
+            JDateChooser tgla = new JDateChooser();
+            JDateChooser tglb = new JDateChooser();
+            JTextField nr = new JTextField();
+            JTextField txtStatus = new JTextField(15);
+            DateFormat dsF = new SimpleDateFormat("yyyy-MM-dd");
+            
+            
+            txtNo.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 1).toString());
+            txtKp.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 2).toString());
+            txtNp.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 3).toString());
+            txtNk.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 4).toString());
+            tgla.setDate((java.util.Date) tblReservasi.getValueAt(tblReservasi.getSelectedRow(),5));
+            tglb.setDate((java.util.Date) tblReservasi.getValueAt(tblReservasi.getSelectedRow(),6));
+            nr.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 7).toString());
+            txtStatus.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 8).toString());
+            
+            
+            JPanel myPanel = new JPanel();
+            myPanel.add(new JLabel("Nomor"));
+            myPanel.add(txtNo);
+            myPanel.add(new JLabel("Kode Pengunjung"));
+            myPanel.add(txtKp);
+            myPanel.add(new JLabel("Nama Pengunjung"));
+            myPanel.add(txtNp);
+            myPanel.add(new JLabel("Nomor Kamar"));
+            myPanel.add(txtNk);
+            myPanel.add(new JLabel("Tanggal Check-In"));
+            myPanel.add(tgla);
+            myPanel.add(new JLabel("Tanggal Check-Out"));
+            myPanel.add(tglb);
+            myPanel.add(new JLabel("Kode Resepsionis"));
+            myPanel.add(nr);
+            myPanel.add(new JLabel("Status"));
+            myPanel.add(txtStatus);
+            
+            int result = JOptionPane.showConfirmDialog(this, myPanel,
+                "Edit Data", 
+                JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
+             
+            if (result == JOptionPane.OK_OPTION){
+                try{
+                    Statement stmt = conn.createStatement();
+                    stmt.executeUpdate("UPDATE reservasi SET id_reservasi='"
+                        + txtNo.getText()  + "', kode_customer='"
+                        + txtKp.getText() +  "', no_kamar='"
+                        + txtNk.getText() + "', tgl_checkin='"
+                        + tgla.getDate() + "', tgl_checkout='"
+                        + tglb.getDate()+ "', kode_recept='"
+                        + nr.getText()+ "', status_reservasi='"
+                        + txtStatus.getText()+ "' WHERE id_reservasi='"
+                        + selectedID + "'");
+                    Statement stmt1= conn.createStatement();
+                    stmt1.executeUpdate("UPDATE customer SET nama_customer='"
+                        + txtNp.getText() + "' WHERE id_reservasi='"
+                        + selectedID + "'");
+                    loadTabelReservasi();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Tidak ada yang dipilih");
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void txtCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyPressed
+        // TODO add your handling code here:
+         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            String teks = txtCari.getText();
+            try {
+                loadTabelReservasi(teks);
+            } catch (SQLException e) {
+                Logger.getLogger(Reservasi1.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+    }//GEN-LAST:event_txtCariKeyPressed
 
     /**
      * @param args the command line arguments
@@ -301,25 +549,33 @@ Kamar1 formKamar = new Kamar1();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reservasi1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reservasi1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reservasi1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reservasi1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainMenu().setVisible(true);
+                try {
+                    new Reservasi1().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Reservasi1.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnTambah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -340,6 +596,9 @@ Kamar1 formKamar = new Kamar1();
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblReservasi;
+    private javax.swing.JTextField txtCari;
     // End of variables declaration//GEN-END:variables
     private void labelcolor(JLabel label){
         label.setBackground(new java.awt.Color(53,162,107));

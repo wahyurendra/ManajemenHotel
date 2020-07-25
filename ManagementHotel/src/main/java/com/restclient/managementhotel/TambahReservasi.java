@@ -173,9 +173,9 @@ public class TambahReservasi extends javax.swing.JFrame {
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
             // TODO add your handling code here:
-        Reservasi form = null;
+        Reservasi1 form = null;
         try {
-            form = new Reservasi();
+            form = new Reservasi1();
         } catch (SQLException ex) {
             Logger.getLogger(TambahReservasi.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -209,7 +209,7 @@ public class TambahReservasi extends javax.swing.JFrame {
             
               else {
                     simpanReservasi();
-                    Reservasi form = new Reservasi();
+                    Reservasi1 form = new Reservasi1();
                     form.show();
                     this.hide();
                 }

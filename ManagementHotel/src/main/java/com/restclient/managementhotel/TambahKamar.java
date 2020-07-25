@@ -172,7 +172,7 @@ public class TambahKamar extends javax.swing.JFrame {
             }
               else {
                     simpanKamar();
-                    Kamar formkamar = new Kamar();
+                    Kamar1 formkamar = new Kamar1();
                     formkamar.show();
                     this.hide();
                 }
@@ -185,8 +185,8 @@ public class TambahKamar extends javax.swing.JFrame {
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
             // TODO add your handling code here:
-        Kamar form = null;
-        form = new Kamar();
+        Kamar1 form = null;
+        form = new Kamar1();
         form.show();
         this.hide();
     }//GEN-LAST:event_btnKembaliActionPerformed
