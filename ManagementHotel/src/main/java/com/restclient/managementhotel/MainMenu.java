@@ -6,8 +6,12 @@
 package com.restclient.managementhotel;
 
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  *
@@ -73,6 +77,11 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Reservasi");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, 40));
@@ -139,6 +148,11 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Kamar");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 210, 40));
@@ -241,6 +255,24 @@ public class MainMenu extends javax.swing.JFrame {
         new Login().setVisible(true);
                     this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
+    Kamar formKamar = new Kamar();
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+        formKamar.setVisible(true);
+        formKamar.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+    }//GEN-LAST:event_jLabel13MouseClicked
+    
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        Reservasi formReservasi = null;
+        try {
+            formReservasi = new Reservasi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        formReservasi.setVisible(true);
+        formReservasi.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
