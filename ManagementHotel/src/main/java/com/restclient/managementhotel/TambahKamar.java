@@ -65,7 +65,7 @@ public class TambahKamar extends javax.swing.JFrame {
 
         cbKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard Room", "Deluxe Room", "Superior Room", "Family Room", "Suite Room", "Presidential Roo", "Junior Suite Roomm" }));
 
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "0" }));
+        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tersedia", "dipesan" }));
         cbStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbStatusActionPerformed(evt);
@@ -194,7 +194,13 @@ public class TambahKamar extends javax.swing.JFrame {
         String pil1 = (String) cbTTT.getSelectedItem();
         String pil2 = (String) cbKamar.getSelectedItem();
         String no = txtNo.getText(); //Meyebabkan unsanitized input
-        int status =  (int) cbStatus.getSelectedIndex();
+        String status =  (String) cbStatus.getSelectedItem();
+        int sts=0;
+        if(status.equals("tersedia")){
+            sts = 1;
+        }else if(status.equals("dipesan")){
+            sts = 0;
+        };
         int harga =  Integer.parseInt(txtHarga.getText());
         
         try {
@@ -202,13 +208,13 @@ public class TambahKamar extends javax.swing.JFrame {
             String sql = "INSERT INTO kamar (no_kamar, tipe_bed, "
                     + "tipe_kamar, occupied,harga) VALUES "
                     + "('" + no + "', '" + pil1+ "','" + pil2 + "', '"
-                    + status+ "', '" + harga + "');";
+                    + sts+ "', '" + harga + "');";
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO kamar(no_kamar, tipe_bed, "
                     + "tipe_kamar, occupied,harga) VALUES (?, ?, ?, ?, ?)");
             stmt.setString(1, no);
             stmt.setString(2, pil1);
             stmt.setString(3, pil2);
-            stmt.setInt(4, status);
+            stmt.setInt(4, sts);
             stmt.setInt(5, harga);
             int executeUpdate = stmt.executeUpdate();
 

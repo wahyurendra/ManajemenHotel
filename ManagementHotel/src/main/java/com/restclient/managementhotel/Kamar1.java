@@ -55,9 +55,15 @@ Connection conn = Koneksi.connectDB();
                 String ttt = rs.getString("tipe_bed");
                 String t_kamar = rs.getString("tipe_kamar");
                 String status = rs.getString("occupied");
+                String stat = null;
+                if(status.equals("1")){
+                    stat = "terserdia";
+                }else if(status.equals("0")){
+                    stat = "dipesan";
+                }
                 int harga = rs.getInt("harga");
                 String hrg = "Rp. " + printDigits(harga);
-                Object[] data={id, no, ttt, t_kamar, status, hrg};
+                Object[] data={id, no, ttt, t_kamar, stat, hrg};
                 dataModel.addRow(data);
             }
         } catch (SQLException e){
@@ -87,9 +93,15 @@ Connection conn = Koneksi.connectDB();
                 String ttt = rs.getString("tipe_bed");
                 String t_kamar = rs.getString("tipe_kamar");
                 String status = rs.getString("occupied");
+                String stat = null;
+                if(status.equals("1")){
+                    stat = "terserdia";
+                }else if(status.equals("0")){
+                    stat = "dipesan";
+                }
                 int harga = rs.getInt("harga");
                 
-                Object[] data={id, no, ttt, t_kamar, status, harga};
+                Object[] data={id, no, ttt, t_kamar, stat, harga};
                 dataModel.addRow(data);
             }
         } catch (SQLException e){
@@ -109,6 +121,7 @@ Connection conn = Koneksi.connectDB();
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -143,10 +156,20 @@ Connection conn = Koneksi.connectDB();
         jPanel1.setMinimumSize(new java.awt.Dimension(1000, 625));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel14.setText("Management Hotel");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
         jPanel2.setBackground(new java.awt.Color(54, 70, 78));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -185,6 +208,11 @@ Connection conn = Koneksi.connectDB();
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 210, 40));
 
         jPanel6.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,6 +246,11 @@ Connection conn = Koneksi.connectDB();
         jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 210, 40));
 
         jPanel8.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel8MouseClicked(evt);
+            }
+        });
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -326,7 +359,8 @@ Connection conn = Koneksi.connectDB();
     int x = 210;
     int a = 0;
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-        System.out.println("Oke");
+        new Dashboard().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
@@ -495,6 +529,26 @@ Connection conn = Koneksi.connectDB();
         }
     }//GEN-LAST:event_txtCariKeyPressed
 
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // reservasi
+        try {
+           new Reservasi1().setVisible(true);
+           this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // pengunjung
+        new Pengunjung().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
+        // kamar
+    }//GEN-LAST:event_jPanel8MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -540,6 +594,7 @@ Connection conn = Koneksi.connectDB();
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

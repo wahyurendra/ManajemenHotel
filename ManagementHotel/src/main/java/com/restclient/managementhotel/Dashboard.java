@@ -5,19 +5,25 @@
  */
 package com.restclient.managementhotel;
 
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  *
- * @author prase
+ * @author r.kumbara
  */
 public class Dashboard extends javax.swing.JFrame {
 
     /**
-     * Creates new form Dashboard
+     * Creates new form MainMenu
      */
     public Dashboard() {
         initComponents();
@@ -36,23 +42,48 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         reserPanel = new javax.swing.JPanel();
         header1 = new javax.swing.JLabel();
         lblreser = new javax.swing.JLabel();
         penPanel = new javax.swing.JPanel();
         header2 = new javax.swing.JLabel();
         lblpen = new javax.swing.JLabel();
-        kamarPanel = new javax.swing.JPanel();
-        header3 = new javax.swing.JLabel();
-        lblkamar = new javax.swing.JLabel();
         resepPanel = new javax.swing.JPanel();
         header4 = new javax.swing.JLabel();
         lblresep = new javax.swing.JLabel();
+        kamarPanel = new javax.swing.JPanel();
+        header3 = new javax.swing.JLabel();
+        lblkamar = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 625));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         reserPanel.setBackground(new java.awt.Color(182, 151, 215));
-        reserPanel.setLayout(new java.awt.BorderLayout());
 
         header1.setBackground(new java.awt.Color(151, 81, 200));
         header1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -60,14 +91,28 @@ public class Dashboard extends javax.swing.JFrame {
         header1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         header1.setText("header1");
         header1.setOpaque(true);
-        reserPanel.add(header1, java.awt.BorderLayout.PAGE_START);
 
         lblreser.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         lblreser.setForeground(new java.awt.Color(254, 254, 254));
         lblreser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblreser.setText("Jumlah Reservasi");
-        reserPanel.add(lblreser, java.awt.BorderLayout.CENTER);
-        lblreser.getAccessibleContext().setAccessibleName("Jumlah Reservasi");
+
+        javax.swing.GroupLayout reserPanelLayout = new javax.swing.GroupLayout(reserPanel);
+        reserPanel.setLayout(reserPanelLayout);
+        reserPanelLayout.setHorizontalGroup(
+            reserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblreser, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        reserPanelLayout.setVerticalGroup(
+            reserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reserPanelLayout.createSequentialGroup()
+                .addComponent(header1)
+                .addGap(0, 0, 0)
+                .addComponent(lblreser, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(reserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 220, -1));
 
         penPanel.setBackground(new java.awt.Color(182, 151, 215));
         penPanel.setLayout(new java.awt.BorderLayout());
@@ -79,32 +124,14 @@ public class Dashboard extends javax.swing.JFrame {
         header2.setText("header2");
         header2.setOpaque(true);
         penPanel.add(header2, java.awt.BorderLayout.PAGE_START);
-        header2.getAccessibleContext().setAccessibleName("Jumlah Pengunjung");
 
         lblpen.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         lblpen.setForeground(new java.awt.Color(254, 254, 254));
         lblpen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblpen.setText("Jumlah Pengunjung");
         penPanel.add(lblpen, java.awt.BorderLayout.CENTER);
-        lblpen.getAccessibleContext().setAccessibleName("Jumlah Pengunjung");
 
-        kamarPanel.setBackground(new java.awt.Color(182, 151, 215));
-        kamarPanel.setLayout(new java.awt.BorderLayout());
-
-        header3.setBackground(new java.awt.Color(151, 81, 200));
-        header3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        header3.setForeground(new java.awt.Color(254, 254, 254));
-        header3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        header3.setText("header3");
-        header3.setOpaque(true);
-        kamarPanel.add(header3, java.awt.BorderLayout.PAGE_START);
-
-        lblkamar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        lblkamar.setForeground(new java.awt.Color(254, 254, 254));
-        lblkamar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblkamar.setText("Jumlah Kamar");
-        kamarPanel.add(lblkamar, java.awt.BorderLayout.CENTER);
-        lblkamar.getAccessibleContext().setAccessibleName("Jumlah Kamar");
+        jPanel1.add(penPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 220, 150));
 
         resepPanel.setBackground(new java.awt.Color(182, 151, 215));
         resepPanel.setLayout(new java.awt.BorderLayout());
@@ -122,57 +149,268 @@ public class Dashboard extends javax.swing.JFrame {
         lblresep.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblresep.setText("Jumlah Reservasi");
         resepPanel.add(lblresep, java.awt.BorderLayout.CENTER);
-        lblresep.getAccessibleContext().setAccessibleName("Jumlah Resepsionis");
+
+        jPanel1.add(resepPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 220, 150));
+
+        kamarPanel.setBackground(new java.awt.Color(182, 151, 215));
+        kamarPanel.setLayout(new java.awt.BorderLayout());
+
+        header3.setBackground(new java.awt.Color(151, 81, 200));
+        header3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        header3.setForeground(new java.awt.Color(254, 254, 254));
+        header3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        header3.setText("header3");
+        header3.setOpaque(true);
+        kamarPanel.add(header3, java.awt.BorderLayout.PAGE_START);
+
+        lblkamar.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        lblkamar.setForeground(new java.awt.Color(254, 254, 254));
+        lblkamar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblkamar.setText("Jumlah Kamar");
+        kamarPanel.add(lblkamar, java.awt.BorderLayout.CENTER);
+
+        jPanel1.add(kamarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 220, 150));
+
+        jPanel2.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-survey-23.png"))); // NOI18N
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 4, 40, 30));
+
+        jLabel5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Reservasi");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, 40));
+
+        jPanel5.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-home-page-23.png"))); // NOI18N
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 4, 40, 30));
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Dashboard");
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 210, 40));
+
+        jPanel6.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-male-user-23.png"))); // NOI18N
+        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 4, 40, 30));
+
+        jLabel9.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Pengunjung");
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 210, 40));
+
+        jPanel7.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout.png"))); // NOI18N
+        jPanel7.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 4, 40, 30));
+
+        jLabel11.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Logout");
+        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
+
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 210, 40));
+
+        jPanel8.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel8MouseClicked(evt);
+            }
+        });
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-magazine-23.png"))); // NOI18N
+        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 4, 40, 30));
+
+        jLabel13.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Kamar");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 20));
+
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 210, 40));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 210, 560));
+
+        jLabel3.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-menu-30.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.setOpaque(true);
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel3MouseExited(evt);
+            }
+        });
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 40, 30));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel2.setText("Management Hotel");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FMainMenu.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 625));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(reserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(770, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(270, 270, 270)
-                    .addComponent(penPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(498, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(535, Short.MAX_VALUE)
-                    .addComponent(kamarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(266, 266, 266)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(763, Short.MAX_VALUE)
-                    .addComponent(resepPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(204, 204, 204)
-                .addComponent(reserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(203, 203, 203)
-                    .addComponent(penPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(266, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(204, 204, 204)
-                    .addComponent(kamarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(268, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(202, 202, 202)
-                    .addComponent(resepPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(269, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    int x = 210;
+    int a = 0;
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        System.out.println("Oke");
+    }//GEN-LAST:event_jPanel5MouseClicked
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        resetlabelcolor(jLabel3);
+    }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        labelcolor(jLabel3);
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        if ( x == 210 ) {
+            jPanel2.setSize(210, 552);
+            Thread th = new Thread() {
+                @Override
+                public void run(){
+                    try {
+
+                        for ( int i = 210; i >= 0; i--){
+                            Thread.sleep(1);
+                            jPanel2.setSize(i, 552);
+
+                            a++;
+                        }
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                }
+            };th.start();
+            x=0;
+        } else if( x == 0 ){
+            jPanel2.setSize(x, 552);
+            Thread th = new Thread(){
+                @Override
+                public void run(){
+                    try {
+                        for (int i = 0; i <= x; i++){
+                            Thread.sleep(1);
+                            jPanel2.setSize(i, 552);
+                        }
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                }
+            };th.start();
+            x = 210;
+        }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        new Login().setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_jPanel7MouseClicked
+    
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jLabel13MouseClicked
+    
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        
+        
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
+        // kamar
+        new Kamar1().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jPanel8MouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // reservasi
+        try {
+           new Reservasi1().setVisible(true);
+           this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // pengunjung
+        new Pengunjung().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -185,7 +423,7 @@ public class Dashboard extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -200,6 +438,7 @@ public class Dashboard extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -208,7 +447,49 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
     }
-     Connection conn = Koneksi.connectDB();
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel header1;
+    private javax.swing.JLabel header2;
+    private javax.swing.JLabel header3;
+    private javax.swing.JLabel header4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel kamarPanel;
+    private javax.swing.JLabel lblkamar;
+    private javax.swing.JLabel lblpen;
+    private javax.swing.JLabel lblresep;
+    private javax.swing.JLabel lblreser;
+    private javax.swing.JPanel penPanel;
+    private javax.swing.JPanel resepPanel;
+    private javax.swing.JPanel reserPanel;
+    // End of variables declaration//GEN-END:variables
+    private void labelcolor(JLabel label){
+        label.setBackground(new java.awt.Color(53,162,107));
+    }
+    
+    private void resetlabelcolor(JLabel label){
+        label.setBackground(new java.awt.Color(54,70,78));
+    }
+    Connection conn = Koneksi.connectDB();
     public void countReser(){
         String query = "SELECT COUNT(reservasi.id_reservasi) AS total FROM reservasi";
         Integer totalItem = 0;
@@ -269,22 +550,8 @@ public class Dashboard extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
         String total = totalItem.toString();
-        header4.setText("Jumlah Kamar");
+        header4.setText("Jumlah Kamar Dipesan");
         lblresep.setText(total);
         lblresep.validate();
     }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel header1;
-    private javax.swing.JLabel header2;
-    private javax.swing.JLabel header3;
-    private javax.swing.JLabel header4;
-    private javax.swing.JPanel kamarPanel;
-    private javax.swing.JLabel lblkamar;
-    private javax.swing.JLabel lblpen;
-    private javax.swing.JLabel lblresep;
-    private javax.swing.JLabel lblreser;
-    private javax.swing.JPanel penPanel;
-    private javax.swing.JPanel resepPanel;
-    private javax.swing.JPanel reserPanel;
-    // End of variables declaration//GEN-END:variables
 }

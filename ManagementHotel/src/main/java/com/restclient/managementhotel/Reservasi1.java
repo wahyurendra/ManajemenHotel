@@ -147,6 +147,11 @@ Connection conn = Koneksi.connectDB();
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -185,6 +190,11 @@ Connection conn = Koneksi.connectDB();
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 210, 40));
 
         jPanel6.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -331,7 +341,9 @@ Connection conn = Koneksi.connectDB();
     int x = 210;
     int a = 0;
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-        System.out.println("Oke");
+        // dashboard
+        new Dashboard().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
@@ -387,9 +399,7 @@ Connection conn = Koneksi.connectDB();
     }//GEN-LAST:event_jPanel7MouseClicked
     
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        // TODO add your handling code here:
-        formKamar.setVisible(true);
-        formKamar.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+
     }//GEN-LAST:event_jLabel13MouseClicked
     
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -403,11 +413,11 @@ Connection conn = Koneksi.connectDB();
         formReservasi.setVisible(true);
         formReservasi.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jLabel5MouseClicked
-Kamar1 formKamar = new Kamar1();
+
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
-        // TODO add your handling code here:
-         formKamar.setVisible(true);
-        formKamar.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+        // kamar
+        new Kamar1().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jPanel8MouseClicked
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
@@ -531,6 +541,22 @@ Kamar1 formKamar = new Kamar1();
             }
         }
     }//GEN-LAST:event_txtCariKeyPressed
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // reservasi 
+         try {
+           new Reservasi1().setVisible(true);
+           this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // pengunjug
+        new Pengunjung().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /**
      * @param args the command line arguments
