@@ -37,4 +37,32 @@
 </dependency>
 
     </dependencies>
+    <name> Management Hotel </name>
+    <build>
+        <finalName>Management Hotel </finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>             
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.restclient.managementhotel</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <desceiptorRef>jar-with-dependencies</desceiptorRef>
+                    </descriptorRefs>
+                </configuration>       
+            </plugin>
+        </plugins>
+    </build>
 </project>
