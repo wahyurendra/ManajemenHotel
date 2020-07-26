@@ -388,6 +388,8 @@ Connection conn = Koneksi.connectDB();
     
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
+        formKamar.setVisible(true);
+        formKamar.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
     }//GEN-LAST:event_jLabel13MouseClicked
     
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -401,11 +403,11 @@ Connection conn = Koneksi.connectDB();
         formReservasi.setVisible(true);
         formReservasi.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jLabel5MouseClicked
-
+Kamar1 formKamar = new Kamar1();
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
-        //kamar
-        new Kamar1().setVisible(true);
-        this.dispose();
+        // TODO add your handling code here:
+         formKamar.setVisible(true);
+        formKamar.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
     }//GEN-LAST:event_jPanel8MouseClicked
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed

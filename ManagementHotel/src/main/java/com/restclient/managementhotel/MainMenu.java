@@ -68,11 +68,6 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(54, 70, 78));
-        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel4MouseClicked(evt);
-            }
-        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -82,13 +77,6 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Reservasi");
-        jLabel5.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
-            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
-                jLabel5AncestorMoved(evt);
-            }
-            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
-            }
-        });
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -269,7 +257,6 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        //logout
         new Login().setVisible(true);
                     this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
@@ -281,29 +268,21 @@ public class MainMenu extends javax.swing.JFrame {
     
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
-        // kamar
-       new Kamar1().setVisible(true);
-       this.dispose();
-    }//GEN-LAST:event_jPanel8MouseClicked
-
-    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        //reservasi
+        Reservasi1 formReservasi = null;
         try {
-            new Reservasi1().setVisible(true);
-            this.dispose();
+            formReservasi = new Reservasi1();
         } catch (SQLException ex) {
             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }//GEN-LAST:event_jPanel4MouseClicked
-
-    private void jLabel5AncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_jLabel5AncestorMoved
+        formReservasi.setVisible(true);
+        formReservasi.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_jLabel5MouseClicked
+Kamar1 formKamar = new Kamar1();
+    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5AncestorMoved
+         formKamar.setVisible(true);
+        formKamar.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+    }//GEN-LAST:event_jPanel8MouseClicked
 
     /**
      * @param args the command line arguments
