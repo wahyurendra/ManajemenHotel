@@ -54,7 +54,13 @@ Connection conn = Koneksi.connectDB();
                 String no = rs.getString("no_kamar");
                 String ttt = rs.getString("tipe_bed");
                 String t_kamar = rs.getString("tipe_kamar");
-                String status = rs.getString("occupied");
+                String status;
+                if(rs.getString("occupied").equals("0")){
+                status = "dipesan";
+                }else{
+                status = "tersedia";
+                }
+                
                 int harga = rs.getInt("harga");
                 String hrg = "Rp. " + printDigits(harga);
                 Object[] data={id, no, ttt, t_kamar, status, hrg};
@@ -132,6 +138,7 @@ Connection conn = Koneksi.connectDB();
         btnHapus = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblKamar = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -147,6 +154,11 @@ Connection conn = Koneksi.connectDB();
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(54, 70, 78));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -302,6 +314,11 @@ Connection conn = Koneksi.connectDB();
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 960, 360));
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel14.setText("Management Hotel");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FMainMenu.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 625));
 
@@ -377,12 +394,15 @@ Connection conn = Koneksi.connectDB();
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        //logout
         new Login().setVisible(true);
                     this.dispose();
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-       
+// kamar
+       new Kamar1().setVisible(true);
+       this.dispose();       
     }//GEN-LAST:event_jLabel13MouseClicked
     
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -398,7 +418,7 @@ Connection conn = Koneksi.connectDB();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        // TODO add your handling code here:
+        // tambah kamar
         TambahKamar fTK = new TambahKamar();
         fTK.show();
         this.hide();
@@ -495,6 +515,16 @@ Connection conn = Koneksi.connectDB();
         }
     }//GEN-LAST:event_txtCariKeyPressed
 
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // reservasi
+        try {
+            new Reservasi1().setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jPanel4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -540,6 +570,7 @@ Connection conn = Koneksi.connectDB();
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

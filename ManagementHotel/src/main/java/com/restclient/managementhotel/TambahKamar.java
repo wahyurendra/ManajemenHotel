@@ -42,10 +42,10 @@ public class TambahKamar extends javax.swing.JFrame {
         txtNo = new javax.swing.JTextField();
         cbTTT = new javax.swing.JComboBox<>();
         cbKamar = new javax.swing.JComboBox<>();
-        cbStatus = new javax.swing.JComboBox<>();
         txtHarga = new javax.swing.JTextField();
         btnSimpan = new javax.swing.JButton();
         btnKembali = new javax.swing.JButton();
+        cbStatus = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,13 +65,6 @@ public class TambahKamar extends javax.swing.JFrame {
 
         cbKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard Room", "Deluxe Room", "Superior Room", "Family Room", "Suite Room", "Presidential Roo", "Junior Suite Roomm" }));
 
-        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "0" }));
-        cbStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbStatusActionPerformed(evt);
-            }
-        });
-
         btnSimpan.setText("Simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +76,13 @@ public class TambahKamar extends javax.swing.JFrame {
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
+            }
+        });
+
+        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tersedia", "dipesan", " " }));
+        cbStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbStatusActionPerformed(evt);
             }
         });
 
@@ -101,7 +101,7 @@ public class TambahKamar extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4))
-                                .addGap(68, 68, 68))
+                                .addGap(57, 57, 57))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -110,15 +110,15 @@ public class TambahKamar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbKamar, 0, 0, Short.MAX_VALUE)
                             .addComponent(txtNo)
-                            .addComponent(cbTTT, 0, 151, Short.MAX_VALUE)
+                            .addComponent(cbTTT, 0, 179, Short.MAX_VALUE)
                             .addComponent(cbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtHarga)))
+                            .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(btnSimpan)
                         .addGap(112, 112, 112)
                         .addComponent(btnKembali)))
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,11 +135,11 @@ public class TambahKamar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(cbKamar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
@@ -153,10 +153,6 @@ public class TambahKamar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cbStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbStatusActionPerformed
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
@@ -185,30 +181,39 @@ public class TambahKamar extends javax.swing.JFrame {
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
             // TODO add your handling code here:
-        Kamar1 form = null;
-        form = new Kamar1();
-        form.show();
-        this.hide();
+        new Kamar1().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnKembaliActionPerformed
+
+    private void cbStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbStatusActionPerformed
     private void simpanKamar() throws Exception {
         String pil1 = (String) cbTTT.getSelectedItem();
         String pil2 = (String) cbKamar.getSelectedItem();
         String no = txtNo.getText(); //Meyebabkan unsanitized input
-        int status =  (int) cbStatus.getSelectedIndex();
+        String status =  (String) cbStatus.getSelectedItem();
+        int sts = 0;
+        if(status.equals("tersedia")){
+            sts = 1;
+        }else if (status.equals("dipesan")){
+            sts = 0;
+        }
         int harga =  Integer.parseInt(txtHarga.getText());
+        
         
         try {
             Connection conn = Koneksi.connectDB();     
             String sql = "INSERT INTO kamar (no_kamar, tipe_bed, "
                     + "tipe_kamar, occupied,harga) VALUES "
                     + "('" + no + "', '" + pil1+ "','" + pil2 + "', '"
-                    + status+ "', '" + harga + "');";
+                    + sts+ "', '" + harga + "');";
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO kamar(no_kamar, tipe_bed, "
                     + "tipe_kamar, occupied,harga) VALUES (?, ?, ?, ?, ?)");
             stmt.setString(1, no);
             stmt.setString(2, pil1);
             stmt.setString(3, pil2);
-            stmt.setInt(4, status);
+            stmt.setInt(4, sts);
             stmt.setInt(5, harga);
             int executeUpdate = stmt.executeUpdate();
 
