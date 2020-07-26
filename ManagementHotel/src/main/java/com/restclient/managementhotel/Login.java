@@ -43,6 +43,7 @@ public class Login extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,6 +113,11 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 217, 160, -1));
 
+        jLabel1.setFont(new java.awt.Font("L M Roman Demi10", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel1.setText("Management Hotel");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 390, 40));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg.jpeg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 450, 490));
 
@@ -133,7 +139,7 @@ Connection conn = Koneksi.connectDB();
             while(rs.next()){
                 String passfield = hashSHA256(rs.getString("salt")+new String(passTxt.getPassword()));
                 if(passfield.equals(rs.getString("password"))){
-                    new MainMenu().setVisible(true);
+                    new Dashboard().setVisible(true);
                     this.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null,"login gagal");
@@ -183,6 +189,7 @@ Connection conn = Koneksi.connectDB();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
