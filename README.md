@@ -98,7 +98,7 @@ Tentukan Directory yang ingin kita jadikan tempat untuk aplikasi, kemudian klik 
     
         3. Untuk mengedit data kamar pengguna memilih data kamar yang ingin di edit 
         selanjutnya klik tombol Edit Data selanjut klik tombol ok untuk menyimpan data seperti berikut : 
-   ![edit](16.png) 
+ ![edit](16.png) 
     
     
    7. Apabila telah selesai menggunakan aplikasi Management Hotel, pengguna dapat melakukan Logout dari aplikasi
