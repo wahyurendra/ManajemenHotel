@@ -103,6 +103,7 @@ Tentukan Directory yang ingin kita jadikan tempat untuk aplikasi, kemudian klik 
     
    7. Apabila telah selesai menggunakan aplikasi Management Hotel, pengguna dapat melakukan Logout dari aplikasi
    dengan klik tombol Logout pada bagian menu aplikasi 
+
    ![logout](17.png) 
         
         
