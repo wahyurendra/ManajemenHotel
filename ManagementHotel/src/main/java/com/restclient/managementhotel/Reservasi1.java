@@ -130,7 +130,6 @@ Connection conn = Koneksi.connectDB();
         txtCari = new javax.swing.JTextField();
         btnTambah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReservasi = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -299,14 +298,6 @@ Connection conn = Koneksi.connectDB();
         });
         jPanel1.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 570, -1, -1));
 
-        btnEdit.setText("Edit Data");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 570, 110, -1));
-
         tblReservasi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -456,80 +447,6 @@ Connection conn = Koneksi.connectDB();
          }
     }//GEN-LAST:event_btnHapusActionPerformed
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
-                  // TODO add your handling code here:
-        if(tblReservasi.isRowSelected(tblReservasi.getSelectedRow())==true){
-            int selectedID = (int)tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 0);
-            JTextField txtNo = new JTextField(15);
-            JTextField txtKp = new JTextField(15);
-            JTextField txtNp = new JTextField(15);
-            JTextField txtNk = new JTextField(15);
-            JDateChooser tgla = new JDateChooser();
-            JDateChooser tglb = new JDateChooser();
-            JTextField nr = new JTextField();
-            JTextField txtStatus = new JTextField(15);
-            DateFormat dsF = new SimpleDateFormat("yyyy-MM-dd");
-            
-            
-            txtNo.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 1).toString());
-            txtKp.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 2).toString());
-            txtNp.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 3).toString());
-            txtNk.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 4).toString());
-            tgla.setDate((java.util.Date) tblReservasi.getValueAt(tblReservasi.getSelectedRow(),5));
-            tglb.setDate((java.util.Date) tblReservasi.getValueAt(tblReservasi.getSelectedRow(),6));
-            nr.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 7).toString());
-            txtStatus.setText(tblReservasi.getValueAt(tblReservasi.getSelectedRow(), 8).toString());
-            
-            
-            JPanel myPanel = new JPanel();
-            myPanel.add(new JLabel("Nomor"));
-            myPanel.add(txtNo);
-            myPanel.add(new JLabel("Kode Pengunjung"));
-            myPanel.add(txtKp);
-            myPanel.add(new JLabel("Nama Pengunjung"));
-            myPanel.add(txtNp);
-            myPanel.add(new JLabel("Nomor Kamar"));
-            myPanel.add(txtNk);
-            myPanel.add(new JLabel("Tanggal Check-In"));
-            myPanel.add(tgla);
-            myPanel.add(new JLabel("Tanggal Check-Out"));
-            myPanel.add(tglb);
-            myPanel.add(new JLabel("Kode Resepsionis"));
-            myPanel.add(nr);
-            myPanel.add(new JLabel("Status"));
-            myPanel.add(txtStatus);
-            
-            int result = JOptionPane.showConfirmDialog(this, myPanel,
-                "Edit Data", 
-                JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
-             
-            if (result == JOptionPane.OK_OPTION){
-                try{
-                    Statement stmt = conn.createStatement();
-                    stmt.executeUpdate("UPDATE reservasi SET id_reservasi='"
-                        + txtNo.getText()  + "', kode_customer='"
-                        + txtKp.getText() +  "', no_kamar='"
-                        + txtNk.getText() + "', tgl_checkin='"
-                        + tgla.getDate() + "', tgl_checkout='"
-                        + tglb.getDate()+ "', kode_recept='"
-                        + nr.getText()+ "', status_reservasi='"
-                        + txtStatus.getText()+ "' WHERE id_reservasi='"
-                        + selectedID + "'");
-                    Statement stmt1= conn.createStatement();
-                    stmt1.executeUpdate("UPDATE customer SET nama_customer='"
-                        + txtNp.getText() + "' WHERE id_reservasi='"
-                        + selectedID + "'");
-                    loadTabelReservasi();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Tidak ada yang dipilih");
-        }
-    }//GEN-LAST:event_btnEditActionPerformed
-
     private void txtCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyPressed
         // TODO add your handling code here:
          if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -599,7 +516,6 @@ Connection conn = Koneksi.connectDB();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
     private javax.swing.JLabel jLabel1;
