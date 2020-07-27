@@ -40,6 +40,17 @@ Tentukan Directory yang ingin kita jadikan tempat untuk aplikasi, kemudian klik 
  Setelah selesai, cek directory yang digunakan untuk penyimpanan aplikasi pada tahap sebelumnya, akan terdapat file dengan extensi .exe kemudian double klik pada file tersebut maka aplikasi akan dapat digunakan.
 
  ![Folder Instalasi](10.png)
+ 
+ ### B. Instalasi Pada Linux 
+    1. Menggunakan file .sh Aplikasi Management Hotel
+        1. Buka folder dimana file .sh Management Hotel 
+        2. Klik kanan lalu pilih "open in terminal" 
+        3. Selanjut nya agar file .sh aplikasi dapat dieksekusi
+        gunakan command "chmod +x namafile.sh"
+        4. jalankan aplikasi dengan menggunakan command "./namafile.sh" 
+        5. ikuti instruksi selanjut nya, setelah berhasil di install
+        untuk menjalankan aplikasi, cari aplikasi dalam menu aplikasi 
+   ![linux](18.png)
 
 ## 3. Requirement 
     1. Diperlukan device berupa komputer atau laptop untuk menjalankan aplikasi Management Hotel 
