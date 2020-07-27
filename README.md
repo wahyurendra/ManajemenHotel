@@ -7,6 +7,7 @@
             - Jumlah Reservasi
             - Jumlah Pengunjung 
             - Jumlah Kamar 
+            -Jumlah Kamar Dipesan
         2. Reservasi 
         Merupakan fitur yang dapat digunakan oleh pengguna untuk menampilkan data reservasi kamar hotel. Pengguna dapat menambahkan, menghapus dan edit data reservasi kamar. 
         3. Pengunjung 
