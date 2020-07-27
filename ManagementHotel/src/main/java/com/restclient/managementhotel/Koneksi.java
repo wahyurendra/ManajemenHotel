@@ -5,9 +5,11 @@
  */
 package com.restclient.managementhotel;
 
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  *
@@ -17,7 +19,12 @@ public class Koneksi {
     public static Connection conn;
     public static void main(String args[]){
         try{
-            String url = "jdbc:mysql://localhost:3306/managementhotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            FileReader reader = new FileReader("conf.properties");
+            Properties p = new Properties();
+            p.load(reader);
+            String ip = p.getProperty("ip");
+            String port = p.getProperty("port");
+            String url = "jdbc:mysql://"+ip+":"+port+"/managementhotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             String user = "root";
             String pass = "";
             conn = (Connection) DriverManager.getConnection(url,user,pass);
