@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2020 at 01:52 PM
+-- Generation Time: Jul 27, 2020 at 02:00 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -80,19 +80,19 @@ INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe_bed`, `tipe_kamar`, `occupied
 (10, '104', 'Double Bed', 'Standard Room', 1, 724000),
 (11, '105', 'Double Bed', 'Standard Room', 1, 724000),
 (12, '106', 'Double Bed', 'Standard Room', 1, 724000),
-(13, '107', 'Twin Bed', 'Standard Room', 0, 618000),
+(13, '107', 'Twin Bed', 'Standard Room', 1, 618000),
 (14, '108', 'Twin Bed', 'Standard Room', 1, 618000),
 (15, '109', 'Twin Bed', 'Standard Room', 1, 618000),
-(16, '110', 'Family Bed', 'Standard Room', 0, 883000),
+(16, '110', 'Family Bed', 'Standard Room', 1, 883000),
 (17, '111', 'Family Bed', 'Standard Room', 1, 883000),
-(18, '112', 'Family Bed', 'Standard Room', 0, 883000),
+(18, '112', 'Family Bed', 'Standard Room', 1, 883000),
 (19, '201', 'Single Bed', 'Superior Room', 1, 828000),
 (20, '202', 'Single Bed', 'Superior Room', 1, 828000),
 (21, '203', 'Single Bed', 'Superior Room', 1, 828000),
 (22, '204', 'Double Bed', 'Superior Room', 1, 987000),
 (23, '205', 'Double Bed', 'Superior Room', 1, 987000),
 (24, '206', 'Double Bed', 'Superior Room', 1, 987000),
-(25, '207', 'Twin Bed', 'Superior Room', 0, 881000),
+(25, '207', 'Twin Bed', 'Superior Room', 1, 881000),
 (26, '208', 'Twin Bed', 'Superior Room', 1, 881000),
 (27, '209', 'Twin Bed', 'Superior Room', 1, 881000),
 (28, '210', 'Family Bed', 'Superior Room', 1, 1146000),
@@ -103,7 +103,7 @@ INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe_bed`, `tipe_kamar`, `occupied
 (33, '303', 'Single Bed', 'Deluxe Room', 1, 1091000),
 (34, '304', 'Double Bed', 'Deluxe Room', 1, 1250000),
 (35, '305', 'Double Bed', 'Deluxe Room', 1, 1250000),
-(36, '306', 'Double Bed', 'Deluxe Room', 0, 1250000),
+(36, '306', 'Double Bed', 'Deluxe Room', 1, 1250000),
 (37, '307', 'Twin Bed', 'Deluxe Room', 1, 1144000),
 (38, '308', 'Twin Bed', 'Deluxe Room', 1, 1144000),
 (39, '309', 'Twin Bed', 'Deluxe Room', 1, 1144000),
@@ -113,7 +113,7 @@ INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe_bed`, `tipe_kamar`, `occupied
 (43, '401', 'Single Bed', 'Junior Suite Room', 1, 1453000),
 (44, '402', 'Single Bed', 'Junior Suite Room', 1, 1453000),
 (45, '403', 'Single Bed', 'Junior Suite Room', 1, 1453000),
-(46, '404', 'Double Bed', 'Junior Suite Room', 0, 1612000),
+(46, '404', 'Double Bed', 'Junior Suite Room', 1, 1612000),
 (47, '405', 'Double Bed', 'Junior Suite Room', 1, 1612000),
 (48, '406', 'Double Bed', 'Junior Suite Room', 1, 1612000),
 (49, '407', 'Twin Bed', 'Junior Suite Room', 1, 1506000),
@@ -123,10 +123,10 @@ INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe_bed`, `tipe_kamar`, `occupied
 (53, '411', 'Family Bed', 'Junior Suite Room', 1, 1771000),
 (54, '412', 'Family Bed', 'Junior Suite Room', 1, 1771000),
 (55, '501', 'Single Bed', 'Suite Room', 1, 1815000),
-(56, '502', 'Single Bed', 'Suite Room', 0, 1815000),
+(56, '502', 'Single Bed', 'Suite Room', 1, 1815000),
 (57, '503', 'Single Bed', 'Suite Room', 1, 1815000),
 (58, '504', 'Double Bed', 'Suite Room', 1, 1974000),
-(59, '505', 'Double Bed', 'Suite Room', 0, 1974000),
+(59, '505', 'Double Bed', 'Suite Room', 1, 1974000),
 (60, '506', 'Double Bed', 'Suite Room', 1, 1974000),
 (61, '507', 'Twin Bed', 'Suite Room', 1, 1868000),
 (62, '508', 'Twin Bed', 'Suite Room', 1, 1868000),
@@ -145,8 +145,7 @@ INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe_bed`, `tipe_kamar`, `occupied
 (75, '609', 'Twin Bed', 'Presidential Suite', 1, 2230000),
 (76, '610', 'Family Bed', 'Presidential Suite', 0, 2495000),
 (77, '611', 'Family Bed', 'Presidential Suite', 1, 2495000),
-(78, '612', 'Family Bed', 'Presidential Suite', 1, 2495000),
-(79, '113', 'Single Bed', 'Standard Room', 1, 1231132);
+(78, '612', 'Family Bed', 'Presidential Suite', 1, 2495000);
 
 -- --------------------------------------------------------
 
@@ -157,7 +156,6 @@ INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `tipe_bed`, `tipe_kamar`, `occupied
 CREATE TABLE `receptionist` (
   `id_recept` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
   `kode_recept` varchar(10) NOT NULL COMMENT 'Kode Resepsionis',
   `nama_recept` varchar(255) NOT NULL COMMENT 'Nama Resepsionis',
   `tmp_lahir` varchar(255) NOT NULL,
@@ -171,9 +169,9 @@ CREATE TABLE `receptionist` (
 -- Dumping data for table `receptionist`
 --
 
-INSERT INTO `receptionist` (`id_recept`, `username`, `password`, `kode_recept`, `nama_recept`, `tmp_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `no_telp`) VALUES
-(1, 'ardhito_p', '81dc9bdb52d04dc20036dbd8313ed055', 'L001', 'Ardhito Pranoto', 'Surabaya', '1996-03-26', 'Laki-laki', 'Jl. Watu Kodok No.05 ', '081234567890'),
-(5, 'cokicoki', '81dc9bdb52d04dc20036dbd8313ed055', 'L005', 'Coki Sihotang', 'Tangerang', '1995-07-21', 'Laki-laki', 'Jl. Mobil Balap No.27', '083210987654');
+INSERT INTO `receptionist` (`id_recept`, `username`, `kode_recept`, `nama_recept`, `tmp_lahir`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `no_telp`) VALUES
+(1, 'recept1', 'L001', 'Bejo', 'Jakarta', '1996-03-26', 'Laki-laki', 'Jl. jalan jalan', '081234567890'),
+(5, 'recept2', 'L002', 'Soleh', 'Jakarta', '1995-07-21', 'Laki-laki', 'Jl.jalanin aja', '085123456789');
 
 -- --------------------------------------------------------
 
@@ -337,7 +335,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `receptionist`
