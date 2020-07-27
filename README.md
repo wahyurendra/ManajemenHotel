@@ -15,7 +15,7 @@
         Merupakan fitur yang digunakan untuk menampilkan data kamar hotel. Pengguna dapat menambahkan, menghapus dan edit data kamar hotel. 
 
 ## 2. Instalasi 
-### A. Instalasi Pada WIndows 
+### A. Instalasi Pada Windows 
 Setelah mengunduh dan melakukan Extract file, maka didalam folder project akan terdapat file .exe test yang akan dijalankan untuk proses pemasangan.
 
 ![Folder Project](5.png)

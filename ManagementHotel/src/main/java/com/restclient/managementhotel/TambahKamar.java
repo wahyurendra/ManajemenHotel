@@ -204,7 +204,7 @@ public class TambahKamar extends javax.swing.JFrame {
         int harga =  Integer.parseInt(txtHarga.getText());
         
         try {
-            Connection conn = Koneksi.connectDB();     
+            Connection conn = Koneksi.connectDB();  
             String sql = "INSERT INTO kamar (no_kamar, tipe_bed, "
                     + "tipe_kamar, occupied,harga) VALUES "
                     + "('" + no + "', '" + pil1+ "','" + pil2 + "', '"
