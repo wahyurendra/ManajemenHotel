@@ -16,7 +16,7 @@
         Merupakan fitur yang digunakan untuk menampilkan data kamar hotel. Pengguna dapat menambahkan, menghapus dan edit data kamar hotel. 
 
 ## 2. Instalasi 
-### A. Instalasi Pada WIndows 
+### A. Instalasi Pada Windows 
 Setelah mengunduh dan melakukan Extract file, maka didalam folder project akan terdapat file .exe test yang akan dijalankan untuk proses pemasangan.
 
 ![Folder Project](5.png)
@@ -42,6 +42,15 @@ Tentukan Directory yang ingin kita jadikan tempat untuk aplikasi, kemudian klik 
  ![Folder Instalasi](10.png)
 
 ## 3. Requirement 
+    1. Diperlukan device berupa komputer atau laptop untuk menjalankan aplikasi Management Hotel 
+    dengan spesifikasi sebagai berikut : 
+        a. Operasi Sistem Laptop menggunakan OS Linux
+        
+        ATAU 
+        
+        b. Operasi Sistem Laptop menggunakan OS Windows
+        
+   2. Aplikasi Management Hotel
 
 ## 4. Manual Penggunaan 
     Pada bagian ini akan dijelaskan mengenai tata cara menggunakan Aplikasi Management Hotel. 
