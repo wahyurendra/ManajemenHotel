@@ -51,7 +51,20 @@ Tentukan Directory yang ingin kita jadikan tempat untuk aplikasi, kemudian klik 
         5. ikuti instruksi selanjut nya, setelah berhasil di install
         untuk menjalankan aplikasi, cari aplikasi dalam menu aplikasi 
    ![linux](18.png)
-
+### Instalasi Database Manual : 
+    1. Siapkan laptop atau komputer 
+    2. Menyalakan XAMPP atau LAMPP 
+    3. buka folder dimana folder Management Hotel ingin diletakkan 
+    4. Download Zip file Management Hotel melalui Github atau 
+    menggunakan "Git clone https://github.com/wahyurendra/ManajemenHotel.git"
+    5. Setelah selesai melakukan download, maka buka Phpmyadmin atau database 
+    6. Tambahkan Database baru 
+   ![db](19.png) 
+    7. Setelah menambahkan Database baru, selanjutnya lakukan import database di File to Import. 
+    dengan memilih file .sql didalam folder Management Hotel 
+    ![db](20.png)
+    8. Setelah menambahkan database, jalankan Aplikasi
+    
 ## 3. Requirement 
     1. Diperlukan device berupa komputer atau laptop untuk menjalankan aplikasi Management Hotel 
     dengan spesifikasi sebagai berikut : 
