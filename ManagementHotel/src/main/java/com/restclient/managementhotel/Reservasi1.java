@@ -311,7 +311,7 @@ Connection conn = Koneksi.connectDB();
         ));
         jScrollPane1.setViewportView(tblReservasi);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 960, 410));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 750, 410));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FMainMenu.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 625));
