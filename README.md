@@ -72,38 +72,38 @@ Tentukan Directory yang ingin kita jadikan tempat untuk aplikasi, kemudian klik 
 ![Form Tambah Reservasi](4.png)
             
         2. Untuk menghapus data reservasi pengguna dapat memilih tombol Hapus Data 
-        ![Hapus data] (11.png)
+![Hapus data](11.png)
         
    5. Fitur Pengunjung
    Fitur ini digunakan untuk menampilkan data pengujung dari hotel. 
    Untuk menggunakan fitur ini cukup klik pada tombol menu pengunjung. 
    Berikut tampilan pada fitur pengunjung : 
    
-   ![Pengunjung] (12.png)
+   ![Pengunjung](12.png)
    
    6. Fitur Kamar 
    Merupakan fitur yang digunakan untuk menampilkan data kamar hotel.
    Pengguna dapat menambahkan, menghapus, mencari dan edit data kamar hotel. 
    Untuk menggunakan fitur ini klik pada menu kamar. 
    Berikut tampilan pada fitur Kamar : 
-   ![Kamar] (13.png) 
+   ![Kamar](13.png) 
    
         1. Untuk Menambahkan data kamar pengguna dapat melakukan klik tombol Tambah Data
         selanjut nya mengisi form yang telah disediakan oleh aplikasi lalu klik tombol Simpan apabila selesai. 
-        ![Form tambah] (14.png) 
+   ![Form tambah](14.png) 
     
         2. Untuk menghapus data pengguna memilih data yang ingin dihapus
         selanjutnya klik tombol Hapus Data seperti berikut : 
-        ![hapus] (15.png) 
+   ![hapus](15.png) 
     
         3. Untuk mengedit data kamar pengguna memilih data kamar yang ingin di edit 
         selanjutnya klik tombol Edit Data selanjut klik tombol ok untuk menyimpan data seperti berikut : 
-        ![edit] (16.png) 
+   ![edit](16.png) 
     
     
    7. Apabila telah selesai menggunakan aplikasi Management Hotel, pengguna dapat melakukan Logout dari aplikasi
    dengan klik tombol Logout pada bagian menu aplikasi 
-   ![logout] (17.png) 
+   ![logout](17.png) 
         
         
         
